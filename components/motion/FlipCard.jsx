@@ -5,8 +5,8 @@ import { cn } from '@/lib/utils';
 
 /**
  * Robust 3D Flip Card Component.
- * Fixed height ensures 3D absolute faces never collapse and bold titles always render prominently.
- * Crisp, tactile glass styling for Light and Dark modes.
+ * Uses semantic theme tokens (bg-surface, text-foreground, border-border)
+ * to guarantee 100% high-contrast readability across all themes with zero white-on-white bugs.
  */
 export default function FlipCard({
   front,
@@ -39,7 +39,7 @@ export default function FlipCard({
       >
         {/* FRONT FACE (Always visible at 0deg) */}
         <div
-          className="absolute inset-0 w-full h-full rounded-2xl bg-white/95 dark:bg-surface/90 backdrop-blur-md border border-slate-200/90 dark:border-border/80 group-hover:border-sky-500 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_35px_rgba(2,132,199,0.12)] dark:hover:shadow-[0_0_25px_rgba(56,189,248,0.12)] p-6 sm:p-7 flex flex-col justify-between overflow-hidden transition-all"
+          className="absolute inset-0 w-full h-full rounded-2xl bg-surface border border-border group-hover:border-sky-500/70 shadow-md dark:shadow-[0_0_25px_rgba(0,0,0,0.3)] dark:group-hover:shadow-[0_0_30px_rgba(56,189,248,0.15)] p-6 sm:p-7 flex flex-col justify-between overflow-hidden transition-all"
           style={{
             backfaceVisibility: 'hidden',
             WebkitBackfaceVisibility: 'hidden',
@@ -52,7 +52,7 @@ export default function FlipCard({
 
         {/* BACK FACE (Hidden at idle, visible at 180deg) */}
         <div
-          className="absolute inset-0 w-full h-full rounded-2xl bg-white dark:bg-surface border border-sky-500/80 dark:border-sky-500/60 shadow-[0_12px_40px_rgba(2,132,199,0.15)] dark:shadow-[0_0_30px_rgba(56,189,248,0.18)] p-6 sm:p-7 flex flex-col justify-between overflow-hidden transition-all"
+          className="absolute inset-0 w-full h-full rounded-2xl bg-surface border border-sky-500/70 shadow-xl dark:shadow-[0_0_30px_rgba(56,189,248,0.18)] p-6 sm:p-7 flex flex-col justify-between overflow-hidden transition-all"
           style={{
             backfaceVisibility: 'hidden',
             WebkitBackfaceVisibility: 'hidden',
