@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+[data-theme='dark'],
+html.dark {
+  /* Visual Direction: Deep Midnight Slate with Sky Blue / Azure Accents (Dark Mode) */
+  --background: #070b14;
+  --foreground: #f0f6fc;
+  --muted: #0d1527;
+  --muted-foreground: #94a3b8;
+  --accent: #38bdf8;
+  --accent-foreground: #040812;
+  --surface: #0e172a;
+  --surface-hover: #162444;
+  --surface-border: #1e3256;
+  --border: #1e2e4a;
+  --border-subtle: #132038;
+
+  /* Sky Blue Specific Tokens (Dark Mode) */
+  --sky-primary: #38bdf8;
+  --sky-light: #7dd3fc;
+  --sky-dark: #0284c7;
+  --sky-glow: rgba(56, 189, 248, 0.15);
+  --sky-border: rgba(56, 189, 248, 0.3);
+
+  /* Typography Variables */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+[data-theme='light'],
+html.light {
+  /* Visual Direction: Ultra-Crisp Editorial Studio Porcelain with Deep Royal Azure (Light Mode) */
+  --background: #f8fafc;
+  --foreground: #090d16;
+  --muted: #f1f5f9;
+  --muted-foreground: #475569;
+  --accent: #0284c7;
+  --accent-foreground: #ffffff;
+  --surface: #ffffff;
+  --surface-hover: #f8fafc;
+  --surface-border: #cbd5e1;
+  --border: #e2e8f0;
+  --border-subtle: #f1f5f9;
+
+  /* Sky Blue Light Mode Tokens (Crisp high-contrast sky cerulean) */
+  --sky-primary: #0284c7;
+  --sky-light: #0ea5e9;
+  --sky-dark: #0369a1;
+  --sky-glow: rgba(2, 132, 199, 0.08);
+  --sky-border: rgba(2, 132, 199, 0.35);
+}
+
+/* Base resets & smooth rendering */
+html {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+  /* Atmospheric sky blue ambient gradient */
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -10%, var(--sky-glow), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 90% 60%, var(--sky-glow), transparent 70%),
+    var(--background);
+}
+
+/* Subtle organic film grain texture overlay for tactile depth */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Lenis Smooth Scroll Standard CSS */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Reduced Motion Compliance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-border);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sky-primary);
+}
