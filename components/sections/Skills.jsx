@@ -12,9 +12,7 @@ import Icon from '@/components/ui/Icon';
 import { useLanguage } from '@/components/ui/LanguageProvider';
 
 /**
- * 3D Flip Card Skills Section.
- * Front face: Bold Domain Title text.
- * Back face: Full Description text and technology stack.
+ * 3D Flip Card Skills Section (Clean, Seamless Design with Zero Divider Lines).
  */
 export default function Skills() {
   const { t } = useLanguage();
@@ -76,8 +74,8 @@ export default function Skills() {
                       </Heading>
                     </div>
 
-                    {/* Front Bottom: Flip Cue */}
-                    <div className="flex items-center justify-between text-xs font-mono text-muted-foreground pt-3 border-t border-border/60">
+                    {/* Front Bottom: Flip Cue (Clean without divider line) */}
+                    <div className="flex items-center justify-between text-xs font-mono text-muted-foreground pt-1">
                       <span>Putar untuk deskripsi</span>
                       <Icon name="RotateCw" size={13} className="text-sky-600 dark:text-sky-400 group-hover:rotate-180 transition-transform duration-500" />
                     </div>
@@ -86,7 +84,7 @@ export default function Skills() {
                 back={
                   <div className="h-full flex flex-col justify-between">
                     {/* Back Top: Title Header */}
-                    <div className="flex items-center justify-between pb-2 border-b border-border/60">
+                    <div className="flex items-center justify-between pb-1">
                       <span className="text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">
                         {domain.title}
                       </span>
@@ -115,7 +113,7 @@ export default function Skills() {
                     </div>
 
                     {/* Back Bottom: Return Cue */}
-                    <div className="flex items-center justify-between text-[11px] font-mono text-muted-foreground pt-2 border-t border-border/60">
+                    <div className="flex items-center justify-between text-[11px] font-mono text-muted-foreground pt-1">
                       <span>Kembali ke judul</span>
                       <Icon name="RotateCcw" size={12} className="text-sky-600 dark:text-sky-400" />
                     </div>

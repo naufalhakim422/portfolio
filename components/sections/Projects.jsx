@@ -12,9 +12,7 @@ import { useLanguage } from '@/components/ui/LanguageProvider';
 import { cn } from '@/lib/utils';
 
 /**
- * 3D Flip Card Projects Section.
- * Front face: Prominent Project Title and status.
- * Back face: Full Technology description, specs, and repository action link.
+ * 3D Flip Card Projects Section (Clean, Seamless Design with Zero Divider Lines).
  */
 export default function Projects() {
   const { t } = useLanguage();
@@ -139,7 +137,7 @@ export default function Projects() {
                     </div>
 
                     {/* Front Bottom: Flip Indicator */}
-                    <div className="flex items-center justify-between text-xs font-mono text-muted-foreground pt-2 border-t border-border/60">
+                    <div className="flex items-center justify-between text-xs font-mono text-muted-foreground pt-1">
                       <span>Putar untuk deskripsi</span>
                       <Icon name="RotateCw" size={13} className="text-sky-600 dark:text-sky-400 group-hover:rotate-180 transition-transform duration-500" />
                     </div>
@@ -148,7 +146,7 @@ export default function Projects() {
                 back={
                   <div className="h-full flex flex-col justify-between">
                     {/* Back Top: Project Title & Number */}
-                    <div className="flex items-center justify-between pb-1.5 border-b border-border/60">
+                    <div className="flex items-center justify-between pb-1">
                       <span className="text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">
                         {project.name}
                       </span>
@@ -182,7 +180,7 @@ export default function Projects() {
                     </div>
 
                     {/* Back Bottom: Return Indicator */}
-                    <div className="flex items-center justify-between text-[11px] font-mono text-muted-foreground pt-2 border-t border-border/60">
+                    <div className="flex items-center justify-between text-[11px] font-mono text-muted-foreground pt-1">
                       <span>Kembali ke judul</span>
                       <Icon name="RotateCcw" size={12} className="text-sky-600 dark:text-sky-400" />
                     </div>
