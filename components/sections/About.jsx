@@ -14,7 +14,7 @@ import Icon from '@/components/ui/Icon';
 import { useLanguage } from '@/components/ui/LanguageProvider';
 
 /**
- * Creative About Section with Professional Portrait & 3D Flip Cards.
+ * Creative About Section with Clean Portrait & 3D Flip Cards (Zero Bracket/Divider Lines).
  */
 export default function About() {
   const { t } = useLanguage();
@@ -82,24 +82,18 @@ export default function About() {
           </div>
         </Reveal>
 
-        {/* Narrative, Photo Card & 4 3D Flip Pillars */}
+        {/* Narrative, Clean Photo Card & 4 3D Flip Pillars */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           
           {/* Left Column: Portrait Card + Narrative Story + Actions */}
           <div className="lg:col-span-5 space-y-6">
             
-            {/* Elegant Portrait Photo Card */}
+            {/* Clean Portrait Photo Card (No corner bracket lines) */}
             <Reveal direction="up" distance={25}>
               <TiltCard
                 maxTilt={5}
-                className="relative p-3 rounded-3xl bg-surface border border-border/90 shadow-md group overflow-hidden"
+                className="relative p-2.5 rounded-3xl bg-surface border border-border/90 shadow-md group overflow-hidden"
               >
-                {/* Architectural Corner Brackets */}
-                <div className="pointer-events-none absolute top-2 left-2 text-[10px] font-mono text-sky-500/40">┌</div>
-                <div className="pointer-events-none absolute top-2 right-2 text-[10px] font-mono text-sky-500/40">┐</div>
-                <div className="pointer-events-none absolute bottom-2 left-2 text-[10px] font-mono text-sky-500/40">└</div>
-                <div className="pointer-events-none absolute bottom-2 right-2 text-[10px] font-mono text-sky-500/40">┘</div>
-
                 {/* Photo Image Frame */}
                 <div className="relative w-full h-[320px] sm:h-[360px] rounded-2xl overflow-hidden bg-muted/40">
                   <Image
@@ -214,7 +208,7 @@ export default function About() {
                         </div>
 
                         {/* Front Bottom: Flip Indicator */}
-                        <div className="flex items-center justify-between text-xs font-mono text-muted-foreground pt-2 border-t border-border/60">
+                        <div className="flex items-center justify-between text-xs font-mono text-muted-foreground pt-1">
                           <span>Putar untuk deskripsi</span>
                           <Icon name="RotateCw" size={13} className="text-sky-600 dark:text-sky-400 group-hover:rotate-180 transition-transform duration-500" />
                         </div>
@@ -223,7 +217,7 @@ export default function About() {
                     back={
                       <div className="h-full flex flex-col justify-between">
                         {/* Back Top: Title Header */}
-                        <div className="flex items-center justify-between pb-2 border-b border-border/60">
+                        <div className="flex items-center justify-between pb-1">
                           <span className="text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase">
                             {pillar.title}
                           </span>
@@ -240,7 +234,7 @@ export default function About() {
                         </div>
 
                         {/* Back Bottom: Return Indicator */}
-                        <div className="flex items-center justify-between text-[11px] font-mono text-muted-foreground pt-2 border-t border-border/60">
+                        <div className="flex items-center justify-between text-[11px] font-mono text-muted-foreground pt-1">
                           <span>Kembali ke judul</span>
                           <Icon name="RotateCcw" size={12} className="text-sky-600 dark:text-sky-400" />
                         </div>
